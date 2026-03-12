@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Clínica Universitaria</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<h1>Sistema de Consulta Médica</h1>
+
+<h2>Agendar Hora</h2>
+
+<form action="/agendar" method="post">
+
+<input type="text" name="paciente" placeholder="Nombre paciente" required>
+
+<input type="text" name="medico" placeholder="Nombre médico" required>
+
+<input type="date" name="fecha" required>
+
+<input type="time" name="hora" required>
+
+<button type="submit">Agendar</button>
+
+</form>
+
+
+<h2>Registrar Diagnóstico</h2>
+
+<form action="/diagnostico" method="post">
+
+<input type="text" name="paciente" placeholder="Paciente" required>
+
+<input type="text" name="diagnostico" placeholder="Diagnóstico" required>
+
+<button type="submit">Guardar</button>
+
+</form>
+
+</body>
+</html>
