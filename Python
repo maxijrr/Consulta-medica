@@ -1,0 +1,137 @@
+pacientes = []
+medicos = []
+horas = []
+diagnosticos = []
+tratamientos = []
+bonos = []
+
+opcion = ""
+
+while opcion != "10":
+
+    print("\n====== SISTEMA DE CLINICA ======")
+    print("1 Registrar paciente")
+    print("2 Registrar medico")
+    print("3 Agendar hora")
+    print("4 Cancelar hora")
+    print("5 Registrar diagnostico")
+    print("6 Registrar tratamiento")
+    print("7 Comprar bono")
+    print("8 Ver historial paciente")
+    print("9 Ver agenda medico")
+    print("10 Salir")
+
+    opcion = input("Seleccione opcion: ")
+
+    if opcion == "1":
+        nombre = input("Nombre paciente: ")
+        edad = input("Edad: ")
+        rut = input("RUT: ")
+
+        pacientes.append([nombre, edad, rut])
+
+        print("Paciente registrado")
+
+    if opcion == "2":
+        nombre = input("Nombre medico: ")
+        especialidad = input("Especialidad: ")
+
+        medicos.append([nombre, especialidad])
+
+        print("Medico registrado")
+
+    if opcion == "3":
+
+        paciente = input("Nombre paciente: ")
+        medico = input("Nombre medico: ")
+        fecha = input("Fecha: ")
+        hora = input("Hora: ")
+
+        horas.append([paciente, medico, fecha, hora])
+
+        print("Hora agendada correctamente")
+
+    if opcion == "4":
+
+        paciente = input("Nombre paciente para cancelar hora: ")
+
+        nueva_lista = []
+
+        for h in horas:
+            if h[0] != paciente:
+                nueva_lista.append(h)
+
+        horas = nueva_lista
+
+        print("Horas del paciente canceladas")
+
+    if opcion == "5":
+
+        paciente = input("Paciente atendido: ")
+        medico = input("Medico: ")
+        diag = input("Diagnostico: ")
+
+        diagnosticos.append([paciente, medico, diag])
+
+        print("Diagnostico registrado")
+
+    if opcion == "6":
+
+        paciente = input("Paciente: ")
+        trat = input("Tratamiento: ")
+
+        tratamientos.append([paciente, trat])
+
+        print("Tratamiento registrado")
+
+    if opcion == "7":
+
+        paciente = input("Nombre paciente: ")
+        valor = input("Valor del bono: ")
+
+        bonos.append([paciente, valor])
+
+        print("Bono comprado")
+
+    if opcion == "8":
+
+        paciente = input("Nombre del paciente: ")
+
+        print("\n--- DATOS PACIENTE ---")
+        for p in pacientes:
+            if p[0] == paciente:
+                print("Nombre:", p[0])
+                print("Edad:", p[1])
+                print("RUT:", p[2])
+
+        print("\n--- HORAS AGENDADAS ---")
+        for h in horas:
+            if h[0] == paciente:
+                print("Medico:", h[1], "Fecha:", h[2], "Hora:", h[3])
+
+        print("\n--- DIAGNOSTICOS ---")
+        for d in diagnosticos:
+            if d[0] == paciente:
+                print("Medico:", d[1], "Diagnostico:", d[2])
+
+        print("\n--- TRATAMIENTOS ---")
+        for t in tratamientos:
+            if t[0] == paciente:
+                print("Tratamiento:", t[1])
+
+        print("\n--- BONOS ---")
+        for b in bonos:
+            if b[0] == paciente:
+                print("Valor bono:", b[1])
+
+    if opcion == "9":
+
+        medico = input("Nombre del medico: ")
+
+        print("\n--- AGENDA DEL MEDICO ---")
+
+        for h in horas:
+            if h[1] == medico:
+                print("Paciente:", h[0], "Fecha:", h[2], "Hora:", h[3])
+
+print("Sistema finalizado")
